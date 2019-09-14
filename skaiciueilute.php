@@ -11,7 +11,8 @@ if (isset($_POST)) {
 if (isset($_POST["numberline"])){
 if ($_POST["numberline"] > "") {
     
-        $numberline = $_POST["numberline"];
+    $numberline = trim($_POST["numberline"],",");
+    if ($numberline > ""){
         if (isset($_POST["growingline"])) {
             $growingline = "checked";
             $res1 = check_growingline($numberline);
@@ -26,6 +27,7 @@ if ($_POST["numberline"] > "") {
         } else $res3 = "";
 
         $result = $res1 . $newline . $newline . $res2 . $newline . $newline . $res3;
+    }
 }}} 
 ?>
 
